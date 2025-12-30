@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Studio JC — Personal Websites</title>
+  <meta name="description" content="Studio JC designs clean, modern personal websites for students and early-career professionals." />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#11131a;
+      --text:#f4f6ff;
+      --muted:#b8bfd6;
+      --line:rgba(255,255,255,.10);
+      --accent:#7c5cff;
+      --accent2:#00d4ff;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 600px at 15% -10%, rgba(124,92,255,.22), transparent 55%),
+        radial-gradient(900px 500px at 85% 10%, rgba(0,212,255,.16), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter: blur(10px);
+      background: rgba(11,12,16,.55);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
+    .logo{
+      width:34px;height:34px;border-radius:11px;
+      background: linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow: 0 10px 30px rgba(124,92,255,.25);
+    }
+    .navlinks{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+    .navlinks a{color:var(--muted);font-size:14px}
+    .navlinks a:hover{color:var(--text)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:10px 14px;border-radius:999px;border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:600;font-size:14px;
+      transition:.15s transform ease,.15s background ease,.15s border-color ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.06)}
+    .btn.primary{
+      border:0;
+      background: linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#0b0c10;
+      box-shadow: 0 14px 40px rgba(124,92,255,.22);
+    }
+    .btn.primary:hover{transform:translateY(-1px)}
+    .hero{padding:44px 0 18px}
+    .grid-hero{display:grid;grid-template-columns: 1.2fr .8fr;gap:22px;align-items:stretch}
+    @media (max-width: 880px){.grid-hero{grid-template-columns:1fr}}
+    .pill{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:8px 12px;border-radius:999px;border:1px solid var(--line);
+      color:var(--muted);font-size:13px;background: rgba(255,255,255,.03);
+    }
+    .pill .dot{width:8px;height:8px;border-radius:99px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    h1{font-size:48px;line-height:1.05;margin:14px 0 12px;letter-spacing:-.8px}
+    @media (max-width: 520px){h1{font-size:38px}}
+    .sub{color:var(--muted);font-size:16px;margin:0 0 18px;max-width:52ch}
+    .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card{padding:18px}
+    .hero-card h3{margin:0 0 10px;font-size:16px}
+    .kv{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    .kv .mini{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(255,255,255,.03);
+      padding:12px;
+    }
+    .mini .k{color:var(--muted);font-size:12px;margin-bottom:6px}
+    .mini .v{font-weight:700}
+    section{padding:34px 0}
+    .section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:14px}
+    .section-title h2{margin:0;font-size:22px;letter-spacing:-.2px}
+    .section-title p{margin:0;color:var(--muted);font-size:14px;max-width:65ch}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media (max-width: 880px){.grid-3{grid-template-columns:1fr}}
+    .box{padding:16px;border-radius:var(--radius);border:1px solid var(--line);background: rgba(255,255,255,.03)}
+    .box h3{margin:0 0 8px;font-size:16px}
+    .box p{margin:0;color:var(--muted);font-size:14px}
+    .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media (max-width: 960px){.work-grid{grid-template-columns:1fr}}
+    .work{padding:16px}
+    .work .tag{display:inline-flex;font-size:12px;color:var(--muted);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background: rgba(255,255,255,.03)}
+    .work h3{margin:10px 0 6px;font-size:18px}
+    .work p{margin:0 0 10px;color:var(--muted);font-size:14px}
+    .work a.link{color:var(--text);font-weight:700}
+    .hr{height:1px;background:var(--line);margin:8px 0}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width: 880px){.two-col{grid-template-columns:1fr}}
+    details{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius);
+      padding:14px;
+    }
+    summary{cursor:pointer;font-weight:700}
+    details p{margin:10px 0 0;color:var(--muted);font-size:14px}
+    .footer{
+      margin-top:40px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      font-size:13px;
+    }
+    .inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:110px;resize:vertical}
+    label{display:block;font-size:13px;color:var(--muted);margin:10px 0 6px}
+    .small{font-size:12px;color:var(--muted)}
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>Studio JC</div>
+      </div>
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#work">Work</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn" href="#contact">Contact</a>
+        <a class="btn primary" href="#contact">Start a site</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <header class="hero">
+      <div class="grid-hero">
+        <div>
+          <div class="pill"><span class="dot"></span> Clean, modern personal websites — built fast</div>
+          <h1>Websites that make you look credible.</h1>
+          <p class="sub">
+            Studio JC designs minimal, high-impact personal sites for students and early-career professionals —
+            optimized for mobile, easy to share, and polished enough to send to recruiters.
+          </p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#contact">Get a site</a>
+            <a class="btn" href="#work">See examples</a>
+          </div>
+          <p class="small" style="margin-top:10px;">
+            Built on GitHub Pages (fast + reliable). We handle layout, copy polish, and setup.
+          </p>
+        </div>
+
+        <div class="card hero-card">
+          <h3>What you get</h3>
+          <div class="hr"></div>
+          <div class="kv">
+            <div class="mini">
+              <div class="k">Delivery</div>
+              <div class="v">3–7 days</div>
+            </div>
+            <div class="mini">
+              <div class="k">Revisions</div>
+              <div class="v">1–2 rounds</div>
+            </div>
+            <div class="mini">
+              <div class="k">Includes</div>
+              <div class="v">Mobile + copy</div>
+            </div>
+            <div class="mini">
+              <div class="k">Hosting</div>
+              <div class="v">Free</div>
+            </div>
+          </div>
+          <div class="hr"></div>
+          <p class="small">
+            Perfect for internship recruiting, study abroad updates, grad school apps, or just having a real online presence.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <section id="services">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>Pick what you need. We keep sites clean, consistent, and easy to update.</p>
+      </div>
+      <div class="grid-3">
+        <div class="box">
+          <h3>Personal Website</h3>
+          <p>Single-page site with intro, skills, experience/work (2–3 items), and contact.</p>
+        </div>
+        <div class="box">
+          <h3>Copy Polish</h3>
+          <p>You give bullet points; we write it into confident, recruiter-friendly wording.</p>
+        </div>
+        <div class="box">
+          <h3>Setup + Launch</h3>
+          <p>GitHub Pages deployment, custom domain support, and mobile optimization.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="section-title">
+        <h2>Process</h2>
+        <p>Simple, fast, and not overwhelming.</p>
+      </div>
+      <div class="grid-3">
+        <div class="box">
+          <h3>1) Intake</h3>
+          <p>Fill out a short form (bullets are fine). Send resume + links + optional headshot.</p>
+        </div>
+        <div class="box">
+          <h3>2) Draft</h3>
+          <p>We build a first version and share the live link for review.</p>
+        </div>
+        <div class="box">
+          <h3>3) Revise + Launch</h3>
+          <p>We refine wording, spacing, and mobile layout — then publish.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="section-title">
+        <h2>Selected Work</h2>
+        <p>Three examples is enough. Make them clean and give each a one-line description.</p>
+      </div>
+
+      <div class="work-grid">
+        <div class="card work">
+          <span class="tag">Founder site</span>
+          <h3>Caroline Reeves</h3>
+          <p>Finance + analytics student site designed for recruiting and credibility.</p>
+          <a class="link" href="https://carolinereeves.github.io/" target="_blank" rel="noreferrer">View site →</a>
+        </div>
+
+        <div class="card work">
+          <span class="tag">Studio partner</span>
+          <h3>Julie [Last Name]</h3>
+          <p>Clean personal brand site with projects and contact.</p>
+          <a class="link" href="#" target="_blank" rel="noreferrer">Add link →</a>
+        </div>
+
+        <div class="card work">
+          <span class="tag">Client example</span>
+          <h3>Arden [Last Name]</h3>
+          <p>Wake Forest history major site focused on writing, research, and interests.</p>
+          <a class="link" href="#" target="_blank" rel="noreferrer">Add link →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-title">
+        <h2>FAQ</h2>
+        <p>These handle the most common objections so you don’t have to in DMs.</p>
+      </div>
+
+      <div class="two-col">
+        <details>
+          <summary>Do I need to write everything perfectly?</summary>
+          <p>No. Send bullet points or rough ideas — we’ll handle wording so it sounds confident and cohesive.</p>
+        </details>
+        <details>
+          <summary>What if I don’t have much experience yet?</summary>
+          <p>That’s fine. We’ll highlight interests, skills, coursework, and 2–3 strong “work” items (papers, projects, etc.).</p>
+        </details>
+        <details>
+          <summary>Can I update it later?</summary>
+          <p>Yes — it’s built to be easy to edit. We can also offer a small monthly update option later if you want.</p>
+        </details>
+        <details>
+          <summary>How does hosting work?</summary>
+          <p>GitHub Pages hosting is free. If you want a custom domain, we’ll help you connect it.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Tell us who you are and what you need. We’ll reply with next steps.</p>
+      </div>
+
+      <div class="card" style="padding:16px">
+        <form id="contactForm">
+          <div class="two-col">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@email.com" required />
+            </div>
+          </div>
+
+          <label for="details">What are you looking for?</label>
+          <textarea id="details" name="details" placeholder="Ex: personal site for recruiting, need copy help, want it done before X date…" required></textarea>
+
+          <div class="inline" style="margin-top:12px">
+            <button class="btn primary" type="submit">Send message</button>
+            <span class="small">This opens your email app with a pre-filled message.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© <span id="year"></span> Studio JC</div>
+      <div class="inline">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mailto-based form submit (no backend needed)
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const details = document.getElementById("details").value.trim();
+
+      const subject = encodeURIComponent("Studio JC Inquiry — " + name);
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\nDetails:\n${details}\n`
+      );
+
+      // TODO: replace with your Studio JC email
+      const to = "YOURSTUDIOJCEMAIL@gmail.com";
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
