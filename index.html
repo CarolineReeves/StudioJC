@@ -39,11 +39,15 @@
     }
     .nav-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
-    .logo{
-      width:34px;height:34px;border-radius:11px;
-      background: linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow: 0 10px 30px rgba(124,92,255,.25);
-    }
+  
+     .logo-img {
+  height: 34px;
+  width: auto;
+  border-radius: 8px; /* optional — remove if you want sharp edges */
+  display: block;
+}
+
+    
     .navlinks{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
     .navlinks a{color:var(--muted);font-size:14px}
     .navlinks a:hover{color:var(--text)}
@@ -150,7 +154,7 @@
   <div class="nav">
     <div class="nav-inner">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
+       <img src="studiojc-logo.jpeg" alt="Studio JC logo" class="logo-img" />
         <div>Studio JC</div>
       </div>
       <div class="navlinks">
